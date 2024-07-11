@@ -1,0 +1,62 @@
+<!-- <h2>{{title}}</h2>
+
+<p>{{ 45+5}}</p>
+
+<h2>{{25}}</h2> -->
+
+
+<!-- Two way data binding -->
+<!-- <input type="text" [(ngModel)]="inputData">
+
+<h2>Name: {{inputData}}</h2> -->
+
+
+<!-- Form Module // Reactive Form -->
+
+<!-- <div class="form">
+  <label for="">UserName</label>
+  <input type="text" #user >
+  <label for="">Password</label>
+  <input type="text" #pass>
+
+  <button (click)="loginFun(user.value, pass.value)">Submit</button>
+</div>
+
+
+<h2></h2>
+<form #tempForm="ngForm" (ngSubmit)="reg(tempForm.value)" >
+  <input type="text" name="Name" ngModel placeholder="enter your name"> <br><br>
+  <input type="number" name="MobileNo" ngModel placeholder="enter your MobileNo"> <br><br>
+  <input type="text" name="Address" ngModel placeholder="enter your Address"> <br><br>
+  <button>Register</button> 
+</form>
+
+-->
+
+
+
+<div class="container">
+  <div class="row">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="row">
+    <!-- rendering all routing component or module(component) -->
+      <router-outlet></router-outlet>
+  </div>
+  <div class="row">
+    <app-footer></app-footer>
+  </div>
+</div>
+
+
+<!-- Custom-component -->
+<!-- <app-custom-comp></app-custom-comp> -->
+
+
+<!-- Component LifeCycle Hook -->
+<!-- <div *ngIf="load">
+  <app-hooks><h2>{{inputData}}</h2></app-hooks>
+</div>
+
+<button (click)="changeData()">changeData</button>
+<button (click)="childComp()">Component</button> -->

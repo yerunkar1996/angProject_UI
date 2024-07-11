@@ -1,0 +1,38 @@
+<div class="contact">
+    <div class="cont1">
+        <div class="card1">
+            <h5>OUR OFFICE ADDRESS</h5>
+            <address>
+                Name: PRP Clg 
+                Address: <q>Nadco shopping center, Andheri West </q>
+            </address>
+        </div>
+        <div class="card2">
+            <h5>PHONE NO</h5>
+            <p>+91 9878456598</p>
+        </div>
+        <div class="card3">
+            <h5>FAX</h5>
+            <p>1-326-132-7865</p>
+        </div>
+        <div class="card4">
+            <h5>EMAIL</h5>
+            <p>test_prp@gmail.com</p>
+        </div>
+    </div>
+    <div class="cont2">
+            <h2>CONTACT US</h2>
+            <div class="forms">
+                <label for="nm">Name</label> <br>
+                <input type="text" id="nm" #name> <br><br>
+
+                <label for="mail">Mail</label> <br>
+                <input type="eamil" id="mail" #email> <br><br>
+
+                <label for="mg">Message</label> <br>
+                <textarea id="mg" #msg cols="30" rows="4"></textarea> <br><br>
+
+                <button (click)="contactMe(name.value, email.value, msg.value)">Contact Me</button>
+            </div>
+    </div>
+</div>

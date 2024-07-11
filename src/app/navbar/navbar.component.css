@@ -1,0 +1,47 @@
+nav{
+    background-color: cadetblue;
+}
+
+
+h2{
+  background-color: aquamarine;
+  font-size: 35px;
+  text-align: center;
+  color: tomato;
+  padding: 0%;
+  margin: 0%;
+}
+
+mat-toolbar {
+  width: 100%;
+}
+.example-spacer {
+    flex: 1 1  auto;
+  }
+  mat-list{
+   display: flex;
+   justify-content: space-evenly;
+   width: 720px;
+   text-align: center;
+}
+.btnlink1 mat-icon{
+   color: green;
+}
+
+.btnlink2 mat-icon{
+  color: red;
+  
+}
+
+.btnlink3 mat-icon{
+  color: orange;
+  
+}
+
+ /* .btn{
+    background-color: teal;
+ }
+
+
+ 
+ */

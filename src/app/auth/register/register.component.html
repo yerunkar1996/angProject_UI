@@ -1,0 +1,56 @@
+<form [formGroup]="registerForm"  (ngSubmit)="regFormSubmit()">
+    <h2>Register Form</h2>
+
+    <div class="field">
+        <label for="sid"><sup>*</sup>Student Id</label>
+        <input type="number" id="sid" formControlName="id" >
+    </div>
+        <span *ngIf="id && id.invalid && id.touched">this field is required</span>
+    <br>
+
+    <div class="field">
+        <label for="name"><sup>*</sup>Student Name</label>
+        <input type="text" id="name" formControlName="name" >
+    </div> 
+    <span *ngIf="name && name.invalid && name.touched">this field is required</span>
+    <br>
+
+    <div class="field">
+        <label for="unm"><sup>*</sup>Student Username</label>
+        <input type="text" id="unm" formControlName="userName" >
+    </div> 
+    <span *ngIf="userName && userName.invalid && userName.touched">this field is required</span>
+    <br>
+
+    <div class="field">
+        <label for="pass"><sup>*</sup>Student Password</label>
+        <input type="password" id="pass" formControlName="password" >
+    </div>
+    <!-- <span *ngIf="Password && Password.invalid && Password.touched">this field is required</span> -->
+    <span *ngIf="checkpass">this field is required</span> <br>
+    <span *ngIf="checkAnnotation">must include @</span>
+     <br>
+
+    <div class="field">
+        <label for="mo"><sup>*</sup>Student Mobile No</label>
+        <input type="number" id="mo" formControlName="mobileNo" >
+    </div> 
+    <span *ngIf="mobileNo && mobileNo.invalid && mobileNo.touched">this field is required</span>
+    <br>
+
+    <div class="field">
+        <label for="mail"><sup>*</sup>Student Email Id</label>
+        <input type="email" id="mail" formControlName="emailId" >
+    </div> <br>
+
+    <div class="field">
+        <label for="addr"><sup>*</sup>Student Place</label> <br>
+        <textarea id="addr" cols="35" rows="5" formControlName="place"></textarea>
+    </div> <br>
+    <!-- <select name="" id="" formControlName="course">
+        <option value="Angular">Angular</option>
+        <option value="React Js">React Js</option>
+        <option value="Node/ Express JS">Node/ Express JS</option>
+    </select> -->
+    <button >Register</button>
+</form>

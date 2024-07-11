@@ -1,0 +1,32 @@
+
+<h2>Update Data</h2>
+<form [formGroup]="updateForm" (ngSubmit)="submitForm()">
+    <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput formControlName="id">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Mobile No</mat-label>
+        <input matInput formControlName="mobileNo">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email Id</mat-label>
+        <input matInput formControlName="emailId">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Place</mat-label>
+        <textarea matInput formControlName="place"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="warn" type="submit">Update</button>
+</form>
+
+  

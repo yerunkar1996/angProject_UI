@@ -1,0 +1,74 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "studentData": [
+    {
+      "id": 1,
+      "name": "Soham",
+      "image": "https://cdn-icons-png.flaticon.com/512/5556/5556520.png",
+      "userName": "Soham25#",
+      "password": "pass@12",
+      "mobileNo": 9865486578,
+      "emailId": "Soham@gmail.com",
+      "attendance": 80,
+      "test": "Pass",
+      "assginment": 5,
+      "place": "Andheri"
+    },
+    {
+      "id": 3,
+      "name": "Shubham",
+      "image": "https://cdn-icons-png.flaticon.com/512/5556/5556520.png",
+      "userName": "Shubham25#",
+      "password": "pass@34",
+      "mobileNo": 7845986578,
+      "emailId": "Shubham@gmail.com",
+      "attendance": 80,
+      "test": "Pass",
+      "assginment": 5,
+      "place": "Ghatkopar"
+    },
+    {
+      "id": 6,
+      "name": "Yash",
+      "image": "https://cdn-icons-png.flaticon.com/512/5556/5556520.png",
+      "mobileNo": "8642024688",
+      "emailId": "yash2323@gmail.com",
+      "place": "Borivali"
+    },
+    {
+      "id": 10,
+      "name": "Rahul",
+      "image": "https://cdn-icons-png.flaticon.com/512/5556/5556520.png",
+      "userName": "rahul123@",
+      "password": "pass@12345",
+      "mobileNo": 7845124578,
+      "emailId": "rahul@13gmail.com",
+      "place": "Jogeshwari"
+    }
+  ],
+  "Admin": [
+    {
+      "id": 1,
+      "name": "Admin1",
+      "userName": "admin1",
+      "password": "admin1",
+      "mobileNo": 9865784598
+    }
+  ]
+}

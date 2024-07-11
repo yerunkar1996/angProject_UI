@@ -1,0 +1,33 @@
+.cont1{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.cont1 div{
+    width: 22%;
+    border: 1px solid skyblue;
+    text-align: center;
+    background-color: rgb(165, 219, 240);
+}
+.cont1 div h5{
+    color: rgb(32, 130, 241);
+}
+.cont2 h2{
+    color: rgb(32, 130, 241);
+
+}
+.cont2{
+    box-sizing: border-box;
+    width: 40%;
+    margin: 5px auto;
+    border: 2px solid black;
+    padding: 60px;
+}
+.cont2 button{
+    border: none;
+    background-color: skyblue;
+    box-shadow: 0 0 3px black;
+    border-radius: 30px;
+    padding: 5px;
+    margin-left: 30%;
+}

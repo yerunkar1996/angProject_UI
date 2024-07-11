@@ -1,0 +1,12 @@
+.page{
+    background-color: aliceblue;
+    color: rgb(71, 71, 177);
+    position: relative;
+    margin: 100px auto;
+    width: 20%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+}

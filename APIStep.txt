@@ -1,0 +1,235 @@
+
+/******************* GET API ********************/
+1. App.module.ts
+        import {HttpClientModule} from '@angular/common/http';
+        imports: [HttpClientModule],
+        
+2. StudentServ.Service.ts
+      import { HttpClient } from '@angular/common/http';
+      // dependancy Injectable
+      constructor(private http: HttpClient) { }
+        apiUrl = "http://localhost:3000/studentData"
+        getData(){
+            return this.http.get(this.apiUrl)
+      }
+
+3. studentProfileComponent.ts
+        students:any=""
+        constructor(private serv: StudentServService){
+            console.log("Constructor of class ")
+        }
+
+        ngOnInit(){
+            console.log("ngOnInit")
+            this.getDetails()
+        }
+        getDetails(){
+            this.serv.getData().subscribe((studentData)=>{
+            this.students = studentData
+            console.log(this.students)
+            })
+        }
+
+
+4. studentPeofileComponent.html
+    <table class=" table table-striped-columns  table-info">
+      <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Mobile No</th>
+          <th>Email Id</th>
+          <th>Place</th>
+      </tr>
+      <tr *ngFor="let data of students" >
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.mobileNo}}</td>
+            <td>{{data.emailId}}</td>
+            <td>{{data.place}}</td>
+            <td>
+              <button>edit</button>
+            </td>
+            <td>
+              <button>delete</button>
+            </td>
+       </tr>
+    </table>
+
+
+
+
+
+/***************** Delete API **********************/
+1. studentServ.Service.ts  
+        //Delete API Method
+        deleteData(id:any){
+            return this.http.delete(`${this.apiUrl}/${id}`)
+        }
+
+
+2.  student-profile.component.ts
+    deleteData(id:any){
+        this.serv.deleteData(id).subscribe(()=>{
+            alert(`student ${id} data has been deleted`)
+        })
+    }
+
+
+3. student-Profile.Component.html
+         <td>
+              <button (click)="deleteData(data.id)">delete</button>
+            </td>
+
+
+
+
+/****** GET API(search) for Particular Students****/
+1. student.service.ts
+        //GET API Method -- profile
+        getProfileData(id:any){
+            return this.http.get(`${this.apiUrl}/${id}`)
+        }
+
+
+2. profile.component.ts
+
+
+
+
+
+
+/************ POST API*******************/
+1. student.service.ts          
+    //POST API Method
+    addDetails(formData:any){
+        return this.http.post(this.apiUrl, formData)
+    }
+
+2. register.component.ts
+    Create FormData -- formGroup & FormControl
+
+
+3. register.comonent.html
+    create reactive  form
+
+4. register.component.ts
+        import { StudentServService } from 'src/app/service/student-serv.service';
+
+        export class RegisterComponent {
+        constructor(private serv: StudentServService){}
+
+
+    regFormSubmit(){
+        //call api method from service
+        this.serv.addDetails(this.registerForm.value).subscribe(()=>{
+          alert("form submitted!")
+        })
+    }
+        }
+    
+
+/******** PUT API(Update)   ***************/
+1. studentProfile.component.html
+    <td>
+        <button mat-button (click)="openDialog(data)"><i class="fa-regular fa-pen-to-square"></i></button>
+    </td>
+
+2. studentPeofile.Component.ts
+    import { MatDialog } from '@angular/material/dialog';
+    import { EditDataComponent } from '../edit-data/edit-data.component';
+
+export class StudentProfileComponent {
+
+  students:any=""
+  constructor(private serv: StudentServService, private router: Router, private dialog: MatDialog){}
+
+  openDialog(studentData:any) {
+    const dialogRef = this.dialog.open(EditDataComponent, {
+      data:{
+        sData: studentData
+      }
+    });
+ 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+}
+
+3. edit.Component.ts
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export class EditDataComponent {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
+  studentData:any
+  ngOnInit(){
+    this.studentData = this.data.sData
+      console.log("StudentId",this.studentData)
+  }
+}
+
+4. app.module.ts
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+imports: [
+    ReactiveFormsModule,
+]
+
+
+5. edit.component.ts
+import { FormGroup, FormControl } from '@angular/forms';
+
+export class EditDataComponent {
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
+  studentData:any
+    ngOnInit(){
+        this.studentData = this.data.sData
+        console.log("Student data is",this.studentData)
+
+        //Destructuring Method -- ES7
+        const {id, name, mobileNo, emailId, place } = this.studentData
+        console.log("id, name, mobileNo, emailId, place",id, name, mobileNo, emailId, place)
+
+        // setPredefine value of form -- Patch method
+        this.updateForm.patchValue({
+            id: id,
+            name: name,
+            mobileNo: mobileNo,
+            emailId: emailId,
+            place: place
+        })
+    }
+    updateForm = new FormGroup({
+        id: new FormControl(""),
+        name: new FormControl(""),
+        mobileNo: new FormControl(""),
+        emailId: new FormControl(""),
+        place: new FormControl("")
+    })
+
+    submitForm(){
+        console.log("Update FormData is",this.updateForm.value)
+    }
+
+}
+
+6. student.service.ts
+     //PUT API Method
+    updateDetails(id:any,formData:any){
+        return this.http.put(`${this.apiUrl}/${id}`,formData)
+    }
+
+7. EditData.Component.ts
+constructor(@Inject(MAT_DIALOG_DATA) public data: any, private studentService: StudentServService){}
+
+
+  submitForm(){
+    console.log("Update FormData is",this.updateForm.value)
+
+    // PUTAPI method
+    this.studentService.updateDetails(this.studentData.id, this.updateForm.value).subscribe(()=>{
+      alert(this.studentData.name+" details has been updated!")
+    })
+  }

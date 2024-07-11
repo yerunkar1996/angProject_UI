@@ -1,0 +1,26 @@
+<!-- Template Driven Form -->
+
+<form #loginForm="ngForm" (ngSubmit)="loginFun(loginForm.value)">
+    <h2>Login Form</h2>
+    <label for="">Select User</label>
+    <select name="User" ngModel [value]="'select user'">
+        <option value="Admin">Admin</option>
+        <option value="Student">Student</option>
+    </select>
+    <br>
+    <p *ngIf="accessError">Select any user</p>
+    <br>
+    
+    <input type="text" placeholder="enter your username" name="Username" ngModel>
+     <br>
+    <p *ngIf="userError">Invalid Username</p>
+    <br>
+
+    <input type="password" placeholder="enter your password" name="Password" ngModel> 
+    <br>
+    <p *ngIf="passError">Invalid Password</p>
+    <br>
+
+    <button>login</button>
+
+</form>

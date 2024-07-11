@@ -1,0 +1,10 @@
+.head{
+    background-color: rgb(242, 147, 130);
+    display: flex;
+    justify-content: space-between;
+}
+
+table {
+    width: 100%;
+  }
+  

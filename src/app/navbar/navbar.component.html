@@ -1,0 +1,53 @@
+<h2>Student Tracker System</h2>
+<mat-toolbar color="primary">
+  <span>
+    <img src="https://play-lh.googleusercontent.com/tG38RRq2kEtzMsaAbzduW9kMbnpXjHuR0226snKQuDaAJd8IcCJUrEod5-hjUbGC6w"
+      width="50px" height="50px" alt="">
+  </span>
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <a class="nav-link active text-light " aria-current="page" routerLink="/">Home</a>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <a class="nav-link active text-light " routerLink="Blogs">Blogs</a>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <a class="nav-link active text-light " routerLink="studentProfile">Student Profile</a>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <a class="nav-link active text-light " [routerLink]="'Contact'">Contact</a>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <a class="nav-link active text-light " [routerLink]="'About'">About</a>
+      <!-- <a class="nav-link active text-light " [routerLink]="'/About/aboutComp'">About Comp</a> -->
+    </mat-list-item>
+
+  </mat-list>
+
+  <span class="example-spacer"></span>
+
+  <button mat-fab class="btn" [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngIf="logIn" >
+      <a class="btnlink1 " [routerLink]="'auth/login'">
+        Login<mat-icon>login</mat-icon>
+      </a>
+    </button>
+    <button mat-menu-item *ngIf="!logIn"  (click)="logout()">
+      <a class="btnlink2 " >
+        Logout<mat-icon>logout</mat-icon>
+      </a>
+    </button>
+    <button mat-menu-item *ngIf="logIn" >
+      <a class="btnlink3 " [routerLink]="'auth/register'">
+        Register<mat-icon>app_registration</mat-icon>
+      </a>
+    </button>
+  </mat-menu>
+
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>

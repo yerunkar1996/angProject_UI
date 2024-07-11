@@ -1,0 +1,23 @@
+form {
+    width: 60%;
+    margin: auto;
+}
+.field label{
+    width: 140px;
+    /* border: 1px solid grey; */
+    margin-right: 10px;
+    box-shadow: 0 0 5px grey;
+}
+form button{
+    border: none;
+    border-radius: 20px;
+    padding: 7px;
+    margin-left: 50%;
+}
+form h2{
+    text-align: center;
+}
+sup,span{
+    color: red;
+    font-size: 12px;
+}
